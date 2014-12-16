@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 20141216172656) do
   create_table "users", force: true do |t|
     t.string "user_name",          null: false
     t.text   "email",              null: false
-    t.text   "password",           null: false
+    t.text   "password_digest",    null: false
     t.string "program",            null: false
     t.string "housing_preference", null: false
     t.string "about_me",           null: false

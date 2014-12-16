@@ -11,7 +11,7 @@ require "pry"
 require_relative "./models/user"
 # require_relative "./models/product"
 
-
+#binding.pry
 
 enable :sessions
 
@@ -57,25 +57,29 @@ end
 post "/session/signup" do
   @user = User.new(params)
   if @user.save
-    session[:user_id] = user.id
-    redirect('/profile/:user_name')
-  else
-    @user = user
-    erb :signup
+    session[:user_id] = @user.id 
   end
+  redirect '/profile/:user_name'
 end
 
-get "/profile/:name" do
+# get '/profile/:user_name' do
+#   erb :profile
+# end
+
+get "/profile/:user_name" do
   if current_user?
+    @user = User.all
     erb :profile
   else
-    redirect('/session/login')
+    nil
+    #redirect('/session/login')
   end
 end
 
-post '/profile/:user_name' do
-  erb :profile
-end
+# get '/session/housing' do
+#   erb: housing
+# end
+
 
 get "/session/logout" do
   session.clear
