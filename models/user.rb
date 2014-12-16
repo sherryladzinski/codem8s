@@ -1,5 +1,4 @@
 require "bcrypt"
-require_relative "../db/connection"
 
 class User < ActiveRecord::Base
   # attributes
@@ -9,7 +8,7 @@ class User < ActiveRecord::Base
   before_save :encrypt_password
 
   # relationships
-  has_and_belongs_to_one :city
+  belongs_to :city
   has_many :posts
 
   # validations
@@ -23,6 +22,12 @@ class User < ActiveRecord::Base
     :uniqueness => { case_sensitive: false },
     :length => { maximum: 255 },
     :format => { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i }
+  validates :program, 
+    :presence => true
+  validates :housing_preference, 
+    :presence => true
+  validates :about_me, 
+    :presence => true
 
   # methods
   def authenticate(password)
