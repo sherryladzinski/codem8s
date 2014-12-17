@@ -9,7 +9,7 @@ require_relative './config/environments'
 require "pry"
 
 require_relative "./models/user"
-# require_relative "./models/product"
+require_relative "./models/city"
 
 #binding.pry
 
@@ -40,10 +40,10 @@ get '/session/login' do
 end
 
 post "/session/login" do
-  user = User.find_by(:email => params[:email])
-  if user && user.authenticate(params[:password])
-    session[:user_id] = user.id
-    redirect('/profile/:user_name')
+  @user = User.find_by(:email => params[:email])
+  if @user && @user.authenticate(params[:password])
+    session[:user_id] = @user.id
+    redirect('/about')
   else
     @errors << "Invalid email or password. Try again!"
     erb :login
@@ -58,13 +58,20 @@ post "/session/signup" do
   @user = User.new(params)
   if @user.save
     session[:user_id] = @user.id 
+    redirect '/about'
+  else
+    @errors << "Invalid entry. Try again"
+    erb :signup
   end
-  redirect '/profile/:user_name'
 end
 
 # get '/profile/:user_name' do
 #   erb :profile
 # end
+
+get '/about' do
+  erb :about
+end
 
 get "/profile/:user_name" do
   if current_user?
@@ -76,6 +83,17 @@ get "/profile/:user_name" do
   end
 end
 
+get '/pickacity' do
+  if current_user? 
+    @city = City.all
+    # redirect '/housing'
+  end
+  erb :pickacity
+end
+
+post "/pickacity" do
+  redirect ('/housing')
+end
 # get '/session/housing' do
 #   erb: housing
 # end
@@ -85,3 +103,5 @@ get "/session/logout" do
   session.clear
   redirect('/')
 end
+
+

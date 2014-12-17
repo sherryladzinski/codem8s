@@ -1,1 +1,11 @@
-<h1>Hello</h1>
+<ul>
+	<% @user.each do |user| %>
+  <li>
+    <h3><%= user.user_name %></h3>
+    <p><%= user.email %></p>
+    <p><%= user.program %></p>
+    <p><%= user.housing_preference %></p>
+    <p><%= user.about_me %></p>
+  </li>
+<% end %>
+</ul>
