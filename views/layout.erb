@@ -2,17 +2,19 @@
 <html>
 <head>
   <title>Codem8s</title>
-  <link type="text/css" rel="stylesheet" href="/styles.css">
+  <link type="text/css" rel="stylesheet" href="/styles.css" href='http://fonts.googleapis.com/css?family=Lobster'>
   <header>
   </header>
 </head>
 <body>
+	<div class="header">
 	<% if current_user %> 
-	<a href="/about">About</a>    
-	<a href="/housing">See city posts</a>
-	<a href="/profile">Profile</a>
+	<a href="/about">About</a> 
+	<a href="/session/update">Update your info</a>   
+	<a href="/profile">Profiles</a>
 	<a href="/pickacity">Pick a city</a>     
   	<a href="/session/logout">Logout</a>  
+  </div>
 <% else %>                         
 <% end %>
   <%= yield %>

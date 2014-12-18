@@ -27,7 +27,8 @@ ActiveRecord::Schema.define(version: 20141218000632) do
   end
 
   create_table "posts", force: true do |t|
-    t.string "post_content", null: false
+    t.string  "post_content", null: false
+    t.integer "user_id"
   end
 
   create_table "users", force: true do |t|

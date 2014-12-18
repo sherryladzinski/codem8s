@@ -12,7 +12,7 @@ require_relative "./models/user"
 require_relative "./models/city"
 require_relative "./models/post"
 
-#binding.pry
+# binding.pry
 
 enable :sessions
 
@@ -88,31 +88,49 @@ post '/profile' do
 
 end
 
+get "/session/update" do
+  @user = current_user
+  erb :user_profile
+end
+
+post '/session/update' do
+  if current_user.update_attributes(params)
+    redirect('/profile')
+  else
+    redirect('/delete')
+  end
+end
+
 get '/pickacity' do
   if current_user? 
     @city = City.all
-    # redirect '/housing'
   end
   erb :pickacity
 end
 
+#do i just need a get since i have a drop down menu and want to go to the city page?
 post "/pickacity" do
-  redirect ('/housing')
+  @selected_city = params[:city_name] 
+  @pickedcity = City.find(@selected_city)
+
+  redirect('/housing')
+
 end
 
-post "/housing" do
-  @post = Post.new(post_content: params[:post_content])
-  @post.save
-
+get "/delete" do
+  @user = current_user
+  erb :delete
+  redirect('/')
 end
 
 get '/housing' do
  erb :housing
 end
-# get '/housing' do
-#   erb: housing
-# end
 
+post "/housing" do
+  @post = Post.new(post_content: params[:post_content])
+  @post.save
+end
 
 get "/session/logout" do
   session.clear

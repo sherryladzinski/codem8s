@@ -1,12 +1,6 @@
 <form action="/housing" method="post">
-  <label>Posts</label>
+  <%= @pickedcity %>
   <input type="text" name="post_content" placeholder="Find a roommate">
-  <input type="submit">
-  <ul>
-	<% @post.each do |post| %>
-  <li>
-    <p><%= post.post_content %></p>
-  </li>
-  <%end%>
-  </ul>
-</form>
+  <input type="submit" value="submit">
+
+</form> 

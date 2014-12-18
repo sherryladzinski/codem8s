@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
   before_save :encrypt_password
 
   # relationships
-  belongs_to :city
+  has_many :cities
   has_many :posts
 
   # validations

@@ -2,3 +2,38 @@
 	background-size: 1200px auto;
 	background-repeat: no-repeat;
 }
+
+h1 {
+	font-family: 'Lobster', cursive, Sans-serif;
+	text-align: center;
+	font-size: 90px;
+	color: #5C949A;
+
+}
+
+.main {
+	background-color: white;
+	padding: 2em;
+	text-align: center;
+	color: white;
+	color: inherit;
+}
+
+.header {
+	text-align: right;
+	margin: 20px;
+}
+
+h2 {
+	color: white;
+	font-size: 40px;
+	text-align: center;
+}
+
+.profiles {
+
+}
+
+.userauth {
+	text-align: center;
+}

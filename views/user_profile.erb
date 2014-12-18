@@ -1,0 +1,38 @@
+<form action="/session/update" method="post">
+
+<% if @user.present? && @user.errors.any? %>
+    <ul>
+    <% @user.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+    </ul>
+  <% end %>
+<h3>Codem8s</h3>
+  <div>
+    <input type="text" name="user_name" value="<%= @user.user_name %>" />
+  </div>
+  <div>
+    <input type="text" name="email" value="<%= @user.email %>" />
+  </div>
+  <div>
+    <input type="password" name="password" placeholder="Password" />
+  </div>
+  <div>
+    <input type="password" name="password_confirmation" placeholder="Password Confirmation" />
+  </div>
+  <div>
+    <input type="text" name="program" value="<%= @user.program %>" />
+  </div>
+  <div>
+    <input type="text" name="housing_preference" value="<%= @user.housing_preference %>" />
+  </div>
+  <div>
+    <input type="text" name="about_me" value="<%= @user.about_me %>" />
+  </div>
+  <div>
+    <input type="submit" value="Update" />
+  </div>
+  <div>
+    <a href="/delete">Delete</a>
+  </div>
+</form>
