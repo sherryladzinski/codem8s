@@ -1,11 +1,12 @@
-<ul>
-	<% @user.each do |user| %>
+<form action="/housing" method="post">
+  <label>Posts</label>
+  <input type="text" name="post_content" placeholder="Find a roommate">
+  <input type="submit">
+  <ul>
+	<% @post.each do |post| %>
   <li>
-    <h3><%= user.user_name %></h3>
-    <p><%= user.email %></p>
-    <p><%= user.program %></p>
-    <p><%= user.housing_preference %></p>
-    <p><%= user.about_me %></p>
+    <p><%= post.post_content %></p>
   </li>
-<% end %>
-</ul>
+  <%end%>
+  </ul>
+</form>

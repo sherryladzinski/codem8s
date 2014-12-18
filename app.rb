@@ -10,6 +10,7 @@ require "pry"
 
 require_relative "./models/user"
 require_relative "./models/city"
+require_relative "./models/post"
 
 #binding.pry
 
@@ -73,7 +74,7 @@ get '/about' do
   erb :about
 end
 
-get "/profile/:user_name" do
+get "/profile" do
   if current_user?
     @user = User.all
     erb :profile
@@ -81,6 +82,10 @@ get "/profile/:user_name" do
     nil
     #redirect('/session/login')
   end
+end
+
+post '/profile' do
+
 end
 
 get '/pickacity' do
@@ -94,7 +99,17 @@ end
 post "/pickacity" do
   redirect ('/housing')
 end
-# get '/session/housing' do
+
+post "/housing" do
+  @post = Post.new(post_content: params[:post_content])
+  @post.save
+
+end
+
+get '/housing' do
+ erb :housing
+end
+# get '/housing' do
 #   erb: housing
 # end
 
