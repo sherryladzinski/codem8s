@@ -7,16 +7,17 @@ h1 {
 	font-family: 'Lobster', cursive, Sans-serif;
 	text-align: center;
 	font-size: 90px;
-	color: white;
+	color: #A9D2D8;
+	font-weight: 300;
 
 }
 
 .main {
-	background-color: white;
-	padding: 2em;
 	text-align: center;
 	color: white;
 	color: inherit;
+	text-align: bottom;
+	position: absolute; bottom: 20px;
 }
 
 .header {
@@ -25,15 +26,29 @@ h1 {
 }
 
 h2 {
-	color: white;
+	color: #A9D2D8;
 	font-size: 40px;
 	text-align: center;
+	font-family: 'Lobster', cursive;
+	font-weight: 300; 
 }
 
-.profiles {
-
+.profile {
+	text-align: center;
+	list-style-type: none;
 }
 
 .userauth {
 	text-align: center;
+}
+
+.input {
+	text-align: center;
+}
+
+.about {
+	text-align: center;
+	position: center;
+	margin-right: 80px;
+	margin-left: 80px;
 }

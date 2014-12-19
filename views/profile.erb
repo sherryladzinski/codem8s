@@ -2,7 +2,7 @@
 
 <ul>
 	<% @user.each do |user| %>
-  <li class="profiles">
+  <li class="profile">
     <h3><%= user.user_name %></h3>
     <p><%= user.email %></p>
     <p><%= user.program %></p>
@@ -10,5 +10,6 @@
     <p><%= user.about_me %></p>
   </li>
 </ul>
+
 <%end%>
 </form>

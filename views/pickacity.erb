@@ -1,9 +1,11 @@
+<section class="input">
+<h2>CODEMates</h2>
 <p>Welcome back, <%= current_user.user_name %></p>
 
 <p>Let's find you a roommate (or 3)</p>
 
 <form action='/pickacity' method="post">
-	<legend>Where do you want to move?</legend>
+	<p>Where do you want to move?</p>
 	<select name="city_name" placeholder="select">
 	     <% @city.each do |city| %>
         <option value="<%= city.id %>"><%= city.city_name %></option>
@@ -11,8 +13,8 @@
 	  </select>
 
 	<input type="submit" value="submit">
-	
+
 
 </form>
 
-
+</section>
